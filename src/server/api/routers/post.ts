@@ -27,4 +27,9 @@ export const postRouter = createTRPCRouter({
 
     return post ?? null;
   }),
+
+    getAll: publicProcedure.query(async ({ ctx }) => {
+        return await ctx.db.query.posts.findMany();
+    }),
+
 });
